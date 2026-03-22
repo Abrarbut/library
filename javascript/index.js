@@ -5,8 +5,10 @@ const myObject = {
   },
 };
 
-// dot notation
-console.log(myObject.property); // "Value!"
+const variable = "property";
 
-// bracket notation
-console.log(myObject["obnoxious property"]); // [Function]
+// "undefined" because it's looking for a property named "variable" in our object
+console.log(myObject.variable);
+
+// this is equivalent to myObject["property"] and returns "Value!"
+console.log(myObject[variable]);
