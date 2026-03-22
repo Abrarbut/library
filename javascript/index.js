@@ -2,6 +2,11 @@ const myObject = {
   property: "Value!",
   otherProperty: 77,
   "obnoxious property": function() {
-    console.log("This is an obnoxious property!");
   },
 };
+
+// dot notation
+console.log(myObject.property); // "Value!"
+
+// bracket notation
+console.log(myObject["obnoxious property"]); // [Function]
