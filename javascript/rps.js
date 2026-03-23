@@ -21,8 +21,8 @@ const rps = {
 };
 
 // Get user input and play
-const playerInput1 = prompt("Player 1 - Enter your choice (rock, paper, or scissors):");
-const playerInput2 = prompt("Player 2 - Enter your choice (rock, paper, or scissors):");
+// const playerInput1 = prompt("Player 1 - Enter your choice (rock, paper, or scissors):");
+// const playerInput2 = prompt("Player 2 - Enter your choice (rock, paper, or scissors):");
 
 // if (playerInput1 && playerInput2) {
 //   console.log(rps.playRound(playerInput1.toLowerCase(), playerInput2.toLowerCase()));
