@@ -20,12 +20,28 @@ const rps = {
   },
 };
 
-// Get user input and play
-// const playerInput1 = prompt("Player 1 - Enter your choice (rock, paper, or scissors):");
-// const playerInput2 = prompt("Player 2 - Enter your choice (rock, paper, or scissors):");
+// Get HTML elements
+const player1Input = document.getElementById("player1");
+const player2Input = document.getElementById("player2");
+const playButton = document.getElementById("playButton");
+const resultDiv = document.getElementById("result");
 
-// if (playerInput1 && playerInput2) {
-//   console.log(rps.playRound(playerInput1.toLowerCase(), playerInput2.toLowerCase()));
-// }
-
-// console.log(`Player Score: ${rps.playerScore1}, Player Score: ${rps.playerScore2}`);
+// Add click event to button
+playButton.addEventListener("click", function() {
+  const choice1 = player1Input.value.toLowerCase();
+  const choice2 = player2Input.value.toLowerCase();
+  
+  if (choice1 && choice2) {
+    const result = rps.playRound(choice1, choice2);
+    resultDiv.innerHTML = `
+      <p>${result}</p>
+      <p>Player 1 Score: ${rps.playerScore1} | Player 2 Score: ${rps.playerScore2}</p>
+    `;
+    
+    // Clear input fields
+    player1Input.value = "";
+    player2Input.value = "";
+  } else {
+    resultDiv.innerHTML = "<p style='color: red;'>Please enter both choices!</p>";
+  }
+});
