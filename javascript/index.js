@@ -2,12 +2,18 @@ const library = {
   name: "rich dad poor dad",
   version: "1.0.0",
   description: "A simple JavaScript library",
+  final : 100,
+  price: 50,
+  percentage: 50,
   discount : function(price, percentage) {
-    return price - (price * (percentage / 100));
+
+    this.final =  price - (price * (percentage / 100));
   }
 }
+
+library.discount(library.price, library.percentage);
 
 console.log(library.name); // Output: rich dad poor dad
 console.log(library.version); // Output: 1.0.0
 console.log(library.description); // Output: A simple JavaScript library
-console.log(library.discount(100, 899)); // Output: 85
+console.log(library.final); // Output: 85
