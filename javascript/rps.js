@@ -24,8 +24,8 @@ const rps = {
 const playerInput1 = prompt("Player 1 - Enter your choice (rock, paper, or scissors):");
 const playerInput2 = prompt("Player 2 - Enter your choice (rock, paper, or scissors):");
 
-if (playerInput1 && playerInput2) {
-  console.log(rps.playRound(playerInput1.toLowerCase(), playerInput2.toLowerCase()));
-}
+// if (playerInput1 && playerInput2) {
+//   console.log(rps.playRound(playerInput1.toLowerCase(), playerInput2.toLowerCase()));
+// }
 
-console.log(`Player Score: ${rps.playerScore1}, Player Score: ${rps.playerScore2}`);
+// console.log(`Player Score: ${rps.playerScore1}, Player Score: ${rps.playerScore2}`);
