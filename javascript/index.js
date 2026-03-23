@@ -1,14 +1,13 @@
-const myObject = {
-  property: "Value!",
-  otherProperty: 77,
-  "obnoxious property": function() {
-  },
-};
+const library = {
+  name: "rich dad poor dad",
+  version: "1.0.0",
+  description: "A simple JavaScript library",
+  discount : function(price, percentage) {
+    return price - (price * (percentage / 100));
+  }
+}
 
-const variable = "property";
-
-// "undefined" because it's looking for a property named "variable" in our object
-console.log(myObject.variable);
-
-// this is equivalent to myObject["property"] and returns "Value!"
-console.log(myObject[variable]);
+console.log(library.name); // Output: rich dad poor dad
+console.log(library.version); // Output: 1.0.0
+console.log(library.description); // Output: A simple JavaScript library
+console.log(library.discount(100, 85)); // Output: 85
