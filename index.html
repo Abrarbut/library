@@ -5,27 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            gap: 5px;
+            margin: 20px auto;
+            justify-content: center;
+        }
+
+        .grid-item {
+            width: 120px;
+            height: 120px;
+            background-color: #fff;
+            border: 2px solid #333;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .grid-item.x {
+            color: blue;
+        }
+
+        .grid-item.o {
+            color: red;
+        }
+
+        #status {
+            font-size: 24px;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        #resetButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #resetButton:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Library</h1>
-    <div id="output"></div>
-
-    <h1>Play Rock Paper Scissors</h1>
-    <div>
-        <label for="player1">Player 1:</label>
-        <input type="text" id="player1" placeholder="Enter choice (rock, paper, scissors)">
+    <h1>Tic Tac Toe</h1>
+    <div id="status">Player X's Turn</div>
+    
+    <div class="grid-container" id="gameBoard">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
     </div>
-    <div>
-        <label for="player2">Player 2:</label>
-        <input type="text" id="player2" placeholder="Enter choice (rock, paper, scissors)">
-    </div>
-    <button id="playButton">Play</button>
+    
+    <button id="resetButton">Reset Game</button>
 
-    <div id="result"></div>
-
-    <script src="javascript/rps.js"></script>
+    <script src="javascript/tictactoe.js"></script>
 
 </body>
 
