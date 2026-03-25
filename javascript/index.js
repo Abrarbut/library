@@ -30,7 +30,7 @@ const bookselect = document.getElementById("book-select");
 
 
 // When user clicks "Done" button
-doneButton.addEventListener("click", function() {
+doneButton.addEventListener("click", function () {
   // Get values from input fields
   const title = titleInput.value;
   const author = authorInput.value;
@@ -40,7 +40,7 @@ doneButton.addEventListener("click", function() {
   if (title && author && pages || id) {
     // Add book to library
     addBookToLibrary(title, author, pages, id);
-    
+
     // Clear input fields
     titleInput.value = title;
     authorInput.value = author;
@@ -58,14 +58,17 @@ doneButton.addEventListener("click", function() {
 // Function to display all books
 function displayBooks() {
   bookListDiv.innerHTML = "";
-  
+
   myLibrary.forEach((book) => {
     const bookDiv = document.createElement("div");
     bookDiv.innerHTML = `
-      <h3>${book.title}</h3>
-      <p>Author: ${book.author}</p>
-      <p>Pages: ${book.pages}</p>
-      <p>id: ${book.id}</p>
+      <div>
+        <h3>${book.title}</h3> 
+        <button onclick="deleteBook('${book.id}')">Delete</button>
+      </div>
+      <p>Author: ${book.author} &nbsp;&nbsp;&nbsp;&nbsp;
+      Pages: ${book.pages} &nbsp;&nbsp;&nbsp;&nbsp;
+      id: ${book.id}</p>
     `;
     bookListDiv.appendChild(bookDiv);
   });
@@ -86,4 +89,12 @@ function displayBookOptions() {
     option.textContent = book.title;
     bookselect.appendChild(option);
   });
+}
+function deleteBook(bookId) {
+  const index = myLibrary.findIndex(book => book.id === bookId);
+  if (index !== -1) {
+    myLibrary.splice(index, 1);
+    displayBooks();
+    displayBookOptions();
+  }
 }
