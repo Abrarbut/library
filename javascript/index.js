@@ -22,6 +22,12 @@ const pagesInput = document.getElementById("book-pages");
 const idInput = document.getElementById("book-id");
 const doneButton = document.getElementById("doneButton");
 const bookListDiv = document.getElementById("bookList");
+const bookselect = document.getElementById("book-select");
+
+
+// function to display books in options
+
+
 
 // When user clicks "Done" button
 doneButton.addEventListener("click", function() {
