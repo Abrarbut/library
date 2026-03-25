@@ -1,40 +1,197 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #bbb5b5;
+    background-color: #e9e7e6;
     margin: 0;
     padding: 0;
+    color: #222;
 }
-h1 {
-    color: #fff;
+
+.header {
+    background: linear-gradient(90deg, #6c63ff 0%, #9b8cff 100%);
+    padding: 28px 16px;
     text-align: center;
-    margin-top: 20px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.header h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.header p {
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Form / controls area */
+.controls {
+    max-width: 920px;
+    margin: 18px auto;
+    padding: 14px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(23,23,23,0.06);
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 18px;
+    align-items: center;
+}
+
+/* left side: select */
+.add-book-form .select-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+#book-select {
+    width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #191961;
+    border-radius: 8px;
+    background: #fafafa;
+    font-size: 15px;
+}
+
+/* right side: add form */
+.form {
+    display: grid;
+    gap: 8px;
+    align-items: center;
+}
+.form label {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 4px;
+}
+.form input[type="text"],
+.form input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+}
+
+/* Buttons */
+.button-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+#addButton,
+#doneButton {
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+#addButton {
+    background: #28a745;
+    color: #fff;
+}
+#doneButton {
+    background: #007bff;
+    color: #fff;
+}
+#addButton:hover { filter: brightness(0.95); }
+#doneButton:hover { filter: brightness(0.95); }
+
+/* Book list area */
+#bookList {
+    max-width: 1100px;
+    margin: 18px auto;
+    padding: 10px;
 }
 .library-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
-    padding: 20px;
+    align-items: start;
 }
+
+/* Book card improvements (keeps your existing class names) */
 .book-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0,    0, 0.1);
-    width: 200px;
-    padding: 15px;
-    text-align: center;
-}   
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(30,30,30,0.06);
+    padding: 14px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 .book-card img {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 .book-card h2 {
-    font-size: 18px;
-    margin: 10px 0 5px;
+    font-size: 16px;
+    margin: 0;
 }
 .book-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
     margin: 0;
+}
+.book-card .card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 8px;
+}
+.book-card button {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #6c63ff;
+    color: #fff;
+    font-size: 13px;
+}
+.book-card button.secondary {
+    background: #f0f0f0;
+    color: #222;
+}
+.book-card button:hover { opacity: 0.95; }
+
+/* #container and #box visuals (optional decorative grid on page) */
+#container {
+    max-width: 1100px;
+    margin: 18px auto 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+#container > div {
+    height: 80px;
+    background: linear-gradient(180deg,#fff,#f7f7f9);
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-weight: 600;
+}
+#box {
+    background: linear-gradient(90deg,#ffd194,#ff8a00);
+    color: #2a2a2a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 880px) {
+    .controls {
+        grid-template-columns: 1fr;
+    }
+    #container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+    .library-container { grid-template-columns: 1fr; }
+    #container { grid-template-columns: 1fr; }
 }
