@@ -45,9 +45,11 @@ doneButton.addEventListener("click", function() {
     titleInput.value = title;
     authorInput.value = author;
     pagesInput.value = pages;
+    idInput.value = "";
 
     // Display the books
     displayBooks();
+    displayBookOptions();
   } else {
     alert("Please fill in all fields!");
   }
@@ -66,5 +68,22 @@ function displayBooks() {
       <p>id: ${book.id}</p>
     `;
     bookListDiv.appendChild(bookDiv);
+  });
+}
+// function for the book options
+function displayBookOptions() {
+  // Preserve the default HTML option (placeholder) if it exists
+  const placeholder = bookselect.querySelector('option[disabled]') || bookselect.querySelector('option[value=""]');
+  bookselect.innerHTML = "";
+
+  if (placeholder) {
+    bookselect.appendChild(placeholder);
+  }
+
+  myLibrary.forEach((book) => {
+    const option = document.createElement("option");
+    option.value = book.id;
+    option.textContent = book.title;
+    bookselect.appendChild(option);
   });
 }
