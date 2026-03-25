@@ -59,6 +59,7 @@ body {
     display: grid;
     gap: 8px;
     align-items: center;
+    padding: 20px;
 }
 .form label {
     font-size: 13px;
