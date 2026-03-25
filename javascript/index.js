@@ -25,7 +25,14 @@ const bookSelect = document.getElementById('book-select');
 
 // Add book factory and helpers
 function addBookToLibrary({ title, author, pages, read = false, id } = {}) {
-    const book = new Book(title, author, pages, read, id);
+    // ensure we always assign a unique id
+    let bookId = id ? String(id) : undefined;
+    if (!bookId || myLibrary.some(b => b.id === bookId)) {
+        if (bookId) console.warn('Provided id already exists — generating a new unique id.');
+        bookId = crypto.randomUUID();
+    }
+
+    const book = new Book(title, author, pages, read, bookId);
     myLibrary.push(book);
     renderLibrary();
     populateSelect();
@@ -136,7 +143,8 @@ addButton.addEventListener('click', (e) => {
     }
 
     addBookToLibrary({ title, author, pages, read: false, id });
-    // clear inputs
+
+    // clear inputs after adding
     inputTitle.value = '';
     inputAuthor.value = '';
     inputPages.value = '';
