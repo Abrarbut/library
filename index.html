@@ -20,10 +20,11 @@
             <select id="book-select">
                 <option value="">--Please choose an option--</option>
             </select>
-            <p>click "Add" button to add the book</p>
+            <p>click "New Book" to add the book</p>
+            <button id="newBookButton" type="button">New Book</button>
         </div>
 
-        <div class="form">
+        <div class="form" style="display:none">
             <div>
                 <label for="book-title">Title:</label>
                 <input type="text" id="book-title" placeholder="Enter book title">
@@ -48,14 +49,9 @@
         </div>
     </div>
 
-    <div id="bookList"></div>
+    <div id="bookDetails"></div>
 
-    <div id="container">
-        <div id="box"></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    <div id="bookList"></div>
 
     <script src="javascript/index.js"></script>
 </body>
